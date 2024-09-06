@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <!-- Libraries Stylesheet -->
+	 <link rel="stylesheet" href="./lib/owlcarousel/assets/owl.carousel.min.css">
+	 <link rel="stylesheet" href="./lib/animate/animate.min.css">
+ 
+	 <!-- Customized Bootstrap Stylesheet -->
+	 <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+ 
+	 <!-- Template Stylesheet -->
+	 <link rel="stylesheet" href="/stylesheets/style1.css">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar & Carousel Start -->
+     <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark px-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="m-0"><i class="fa-solid fa-gem"></i>LOGO</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0 text-capitalize">
+                    <a href="index.html" class="nav-item nav-link active text-dark">Trang chủ</a>
+                    <a href="shop.html" class="nav-item nav-link ">Sản phẩm</a>                    <a href="blog.html" class="nav-item nav-link">Tin tức</a>
+                    <div class="nav-item dropdown" id="account">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tài khoản</a>
+                        <div class="dropdown-menu m-0">
+							<a href="admin.html" class="dropdown-item">Chào, <span id="accountName" class="text-dark fw-bold"></span></a>
+                            <a href="login.html" class="dropdown-item" onclick="checkLogin()">Đăng nhập/Đăng ký</a>
+                            <a href="info.html" class="dropdown-item">Thông tin tài khoản</a>
+                            <a href="#" class="dropdown-item" onclick="logout()">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex ps-4" role="search">
+                    <a href="shop.html"><i class="bi bi-search text-white"></i></a>
+                </div>
+                <div class="d-flex align-items-center ms-3">
+                    <div id="cart" class="position-relative d-flex justify-content-center align-items-center rounded-circle bg-black bg-opacity-10 px-2 py-1 ">
+                        <a href="?mod=cart&act=list">
+                            <i class="fa-solid fa-bag-shopping fw-bolder  text-dark fs-4"></i>
+                        </a>
+                        <div class="">
+                            <span id="amount-cart" class="text-white position-absolute top-0 start-75 translate-middle bg-main px-2 rounded-circle"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid bg-primary py-5 bg-header">
+            <div class="row py-5">
+                <div class="col-12 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-4 text-white animated zoomIn"><span id="productName" class=""></span></h1>
+                    <a href="" class="h5 text-white">Trang chủ</a>
+                    <i class="far fa-circle text-white px-2"></i>
+                    <a href="" class="h5 text-white">Sản phẩm</a>
+					<i class="far fa-circle text-white px-2"></i>
+                    <a href="" class="h5 text-white">Chi tiết sản phẩm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar & Carousel End -->
+
+
+    <div class="container single_product_container">
+		<div class="row">
+			<div class="col">
+
+				<!-- Breadcrumbs -->
+
+				<div class="breadcrumbs d-flex flex-row align-items-center">
+					<ul>
+						<li><a href="index.html">Trang chủ</a></li>
+						<li><a href="categories.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Sản phẩm</a></li>
+						<li class="active"><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Chi tiết sản phẩm</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-7">
+				<div class="single_product_pics">
+					<div class="row">
+						<!-- <div class="col-lg-3 thumbnails_col order-lg-1 order-2">
+							<div class="single_product_thumbnails">
+								<ul>
+									<li><img src="/startup2-1.0.0/img/sp2.webp " alt="" data-image="images/single_1.jpg"></li>
+									<li class="active"><img src="/startup2-1.0.0/img/sp1.png" alt="" data-image="images/single_2.jpg"></li>
+									<li><img src="/startup2-1.0.0/img/sp3.webp" alt="" data-image="images/single_3.jpg"></li>
+								</ul>
+							</div>
+						</div> -->
+						<div class="col-lg-12 image_col order-lg-2 order-1">
+							<div class="single_product_image">
+								<div class="single_product_image_background" style="background-image:url(/startup2-1.0.0/img/sp1.png)"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5">
+				<div class="product_details">
+					<div class="product_details_title">
+						<h2 class="product-detail-name"></h2>
+						<p>Thiết kế độc quyền</p>
+					</div>
+					<div class="free_delivery d-flex flex-row align-items-center justify-content-center my-5">
+						<span class="ti-truck"></span><span>Giao hàng nhanh chóng</span>
+					</div>
+					<!-- <div class="original_price">$629.99</div> -->
+					<div class="product_price">$495.00</div>
+					<!-- <ul class="star_rating mt-5">
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+					</ul> -->
+					<!-- <div class="product_color">
+						<span>Select Color:</span>
+						<ul>
+							<li style="background: #e54e5d"></li>
+							<li style="background: #252525"></li>
+							<li style="background: #60b3f3"></li>
+						</ul>
+					</div> -->
+					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center my-5">
+						<span>Số lượng:</span>
+						<div class="quantity_selector">
+							<span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+							<span id="quantity_value">1</span>
+							<span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+						</div>
+						<div class="red_button add_to_cart_button"><a href="#">Thêm vào giỏ hàng</a></div>
+						<div class="product_favorite d-flex flex-column align-items-center justify-content-center"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="root">p</div>
+
+	<!-- Tabs -->
+
+	<div class="tabs_section_container">
+
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="tabs_container">
+						<ul class="tabs d-flex flex-sm-row flex-column align-items-left align-items-md-center justify-content-center">
+							<li class="tab active" data-active-tab="tab_1"><span>Mô tả</span></li>
+							<li class="tab" data-active-tab="tab_2"><span>Thông tin sản phẩm</span></li>
+							<li class="tab" data-active-tab="tab_3"><span>Bình luận (2)</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+
+					<!-- Tab Description -->
+
+					<div id="tab_1" class="tab_container active">
+						<div class="row">
+							<div class="col-lg-5 desc_col">
+								<div class="tab_title">
+									<h4>Mô tả</h4>
+								</div>
+								<div class="tab_text_block">
+									<h2>Pocket cotton sweatshirt</h2>
+									<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
+								</div>
+								<div class="tab_image">
+									<img src="images/desc_1.jpg" alt="">
+								</div>
+								<div class="tab_text_block">
+									<h2>Pocket cotton sweatshirt</h2>
+									<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
+								</div>
+							</div>
+							<div class="col-lg-5 offset-lg-2 desc_col">
+								<div class="tab_image">
+									<img src="images/desc_2.jpg" alt="">
+								</div>
+								<div class="tab_text_block">
+									<h2>Pocket cotton sweatshirt</h2>
+									<p>Nam tempus turpis at metus scelerisque placerat nulla deumantos solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis ut...</p>
+								</div>
+								<div class="tab_image desc_last">
+									<img src="images/desc_3.jpg" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tab Additional Info -->
+
+					<div id="tab_2" class="tab_container">
+						<div class="row">
+							<div class="col additional_info_col">
+								<div class="tab_title additional_info_title">
+									<h4>Additional Information</h4>
+								</div>
+								<p>COLOR:<span>Gold, Red</span></p>
+								<p>SIZE:<span>L,M,XL</span></p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Tab Reviews -->
+
+					<div id="tab_3" class="tab_container">
+						<div class="row">
+
+							<!-- User Reviews -->
+
+							<div class="col-lg-6 reviews_col">
+								<div class="tab_title reviews_title">
+									<h4>Reviews (2)</h4>
+								</div>
+
+								<!-- User Review -->
+
+								<div class="user_review_container d-flex flex-column flex-sm-row">
+									<div class="user">
+										<div class="user_pic"></div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</div>
+									</div>
+									<div class="review">
+										<div class="review_date">27 Aug 2016</div>
+										<div class="user_name">Brandon William</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+
+								<!-- User Review -->
+
+								<div class="user_review_container d-flex flex-column flex-sm-row">
+									<div class="user">
+										<div class="user_pic"></div>
+										<div class="user_rating">
+											<ul class="star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+										</div>
+									</div>
+									<div class="review">
+										<div class="review_date">27 Aug 2016</div>
+										<div class="user_name">Brandon William</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+									</div>
+								</div>
+							</div>
+
+							<!-- Add Review -->
+
+							<div class="col-lg-6 add_review_col">
+
+								<div class="add_review">
+									<form id="review_form" action="post">
+										<div>
+											<h1>Add Review</h1>
+											<input id="review_name" class="form_input input_name" type="text" name="name" placeholder="Name*" required="required" data-error="Name is required.">
+											<input id="review_email" class="form_input input_email" type="email" name="email" placeholder="Email*" required="required" data-error="Valid email is required.">
+										</div>
+										<div>
+											<h1>Your Rating:</h1>
+											<ul class="user_star_rating">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+											</ul>
+											<textarea id="review_message" class="input_review" name="message"  placeholder="Your Review" rows="4" required data-error="Please, leave us a review."></textarea>
+										</div>
+										<div class="text-left text-sm-right">
+											<button id="review_submit" type="submit" class="red_button review_submit_btn trans_300" value="Submit">submit</button>
+										</div>
+									</form>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Benefit -->
+
+	<div class="benefit">
+		<div class="container">
+			<div class="row benefit_row">
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>free shipping</h6>
+							<p>Suffered Alteration in Some Form</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>cach on delivery</h6>
+							<p>The Internet Tend To Repeat</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>45 days return</h6>
+							<p>Making it Look Like Readable</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 benefit_col">
+					<div class="benefit_item d-flex flex-row align-items-center">
+						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+						<div class="benefit_content">
+							<h6>opening all week</h6>
+							<p>8AM - 09PM</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Newsletter -->
+
+	<div class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="newsletter_text d-flex flex-column justify-content-center align-items-lg-start align-items-md-center text-center">
+						<h4>Đăng ký email</h4>
+						<p>Nhận ngay những ưu đãi hấp dẫn lên tới 30%</p>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<form action="post">
+						<div class="newsletter_form d-flex flex-md-row flex-column flex-xs-column align-items-center justify-content-lg-end justify-content-center">
+							<input id="newsletter_email" type="email" placeholder="Your email" required="required" data-error="Valid email is required.">
+							<button id="newsletter_submit" type="submit" class="newsletter_submit_btn trans_300 btn btn-dark" value="Submit">Đăng ký</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-dark mt-5" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="row gx-5">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <div class="d-flex flex-column align-items-center justify-content-center text-center h-100 p-4">
+                        <a href="index.html" class="navbar-brand">
+                            <h1 class="m-0 text-white">LOGO</h1>
+                        </a>
+                        <p class="mt-3 mb-4">Lorem diam sit erat dolor elitr et, diam lorem justo amet clita stet eos sit. Elitr dolor duo lorem, elitr clita ipsum sea. Diam amet erat lorem stet eos. Diam amet et kasd eos duo.</p>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                    <div class="row gx-5">
+                        <div class="col-lg-4 col-md-12 pt-5 mb-5">
+                            <div class="position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Liên hệ</h3>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-geo-alt text-white me-2"></i>
+                                <p class="mb-0">Street</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-envelope-open text-white me-2"></i>
+                                <p class="mb-0">info@example.com</p>
+                            </div>
+                            <div class="d-flex mb-2">
+                                <i class="bi bi-telephone text-white me-2"></i>
+                                <p class="mb-0">012 345 67890</p>
+                            </div>
+                            <div class="d-flex mt-4">
+                                <a class="btn btn-light btn-square me-2" href="#"><i class="fab fa-twitter fw-normal"></i></a>
+                                <a class="btn btn-light btn-square me-2" href="#"><i class="fab fa-facebook-f fw-normal"></i></a>
+                                <a class="btn btn-light btn-square me-2" href="#"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                                <a class="btn btn-light btn-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <div class="position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Quick Links</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>About Us</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Our Services</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Meet The Team</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Latest Blog</a>
+                                <a class="text-light" href="#"><i class="bi bi-arrow-right me-2"></i>Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
+                            <div class="position-relative pb-3 mb-4">
+                                <h3 class="text-light mb-0">Popular Links</h3>
+                            </div>
+                            <div class="link-animated d-flex flex-column justify-content-start">
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Home</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>About Us</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Our Services</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Meet The Team</a>
+                                <a class="text-light mb-2" href="#"><i class="bi bi-arrow-right me-2"></i>Latest Blog</a>
+                                <a class="text-light" href="#"><i class="bi bi-arrow-right me-2"></i>Contact Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid text-white" style="background: #061429;">
+        <div class="container text-center">
+            <div class="row justify-content-end">
+                <div class="col-lg-12">
+                    <div class="d-flex align-items-center justify-content-center" style="height: 75px;">
+                        <p class="mb-0">&copy; <a class="text-white border-bottom" href="#">Your Site Name</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+   <!-- JavaScript Libraries -->
+   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+   
+   <script src="./lib/wow/wow.min.js"></script>
+   <script src="./lib/easing/easing.min.js"></script>
+   <script src="./lib/waypoints/waypoints.min.js"></script>
+   <script src="./lib/counterup/counterup.min.js"></script>
+   <script src="./lib/owlcarousel/owl.carousel.min.js"></script>
+
+   <!-- Template Javascript -->
+   <script src="./js/mainIndex.js"></script>
+   <script  src="./js/feature.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script>
+		let urlParam = new URLSearchParams(window.location.search);
+		let id = urlParam.get("id");
+		console.log(id);
+
+		axios.get(`http://localhost:3000/api/products/${id}`)
+			.then(response => {
+				const data = response.data;
+				document.querySelector('.single_product_image_background').src = data.image;
+				document.querySelector('.product-detail-name').innerHTML = data.name;
+
+				const formattedPrice = formatCurrency(data.price); // Áp dụng định dạng giá tiền
+				document.querySelector('.product_price').innerHTML = formattedPrice;
+			});
+		
+		router.get('/products/:id', async(req, res, next)=> {
+		const db = await connectDb();
+		const productCollection = db.collection('product');
+		let id = req.params.id;
+		const product = await productCollection.findOne({id: parseInt(id)});
+		if(product) {
+			res.status(200).json(product);
+		}else{
+			res.status(404).json({message: 'Not found'});
+		}
+	});
+
+		function formatCurrency(amount) {
+			const formatter = new Intl.NumberFormat('vi-VN', {
+				style: 'currency',
+				currency: 'VND'
+			});
+			return formatter.format(amount);
+		}
+	  </script>
+</body>
+</html>
